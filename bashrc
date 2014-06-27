@@ -71,8 +71,9 @@ shopt -s checkwinsize
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/gocode
 export GOBIN=$GOPATH/bin
-export JSLIBPATH=$HOME/gocode/src/github.com/Novetta/VideoEnterprise/static/lib
-export ICON_DIR=$HOME/gocode/src/github.com/Novetta/common/milsym/icons
+export NOVETTA_PATH=$HOME/gocode/src/github.com/Novetta
+export JSLIBPATH=$NOVETTA_PATH/VideoEnterprise/static/lib
+export ICON_DIR=$NOVETTA_PATH/common/milsym/icons
 
 bash_prompt
 #unset bash_prompt
@@ -85,7 +86,9 @@ export SENCHA_CMD_3_0_0="/home/scott/bin/Sencha/Cmd/4.0.4.84"
 
 [ -f /etc/profile ] && source /etc/profile
 export PGDATA=/var/lib/pgsql/data
-export PATH=$PATH:$HOME/bin:/usr/pgsql-9.3/bin
+export PATH=$PATH:$HOME/bin
+# Use for postgresql 9.3
+#export PATH:$PATH:/usr/pgsql-9.3/bin
 export PGUSER=postgres
 export PGDATABASE=VideoEnterprise
 export PGSSLMODE=disable
