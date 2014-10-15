@@ -1,0 +1,42 @@
+#!/bin/bash
+
+source $VIDEO_ENTERPRISE/build/videx.env
+
+sudo service postgresql restart
+sudo service videx stop
+sudo service executor stop
+sudo service perseus stop
+
+sudo rpm -e videx
+sudo rpm -e videx-deps
+sudo rpm -e perseus
+
+#remove old installs
+cd $HOME/rpmbuild/RPMS
+rm -rf x86_64
+cd $HOME
+
+#reset counter to 0
+echo 0 > $VIDEO_ENTERPRISE/build/videx.spect.count
+echo 0 > $VIDEO_ENTERPRISE/build/videx-deps.spect.count
+echo 0 > $PERSEUS/build/perseus.spect.count
+
+# Build dependencies
+echo "Building Dependencies"
+$HOME/gocode/src/github.com/Novetta/common/build/buildrpm $HOME/gocode/src/github.com/Novetta/VideoEnterprise/build/videx-deps.spect
+
+# Build Videx Itself
+echo "Building Videx Itself"
+$HOME/gocode/src/github.com/Novetta/common/build/buildrpm $HOME/gocode/src/github.com/Novetta/VideoEnterprise/build/videx.spect
+
+echo "Installing Videx"
+sudo yum install $HOME/rpmbuild/RPMS/x86_64/videx*.rpm
+
+# Build perseus
+echo "Building Perseus"
+$HOME/gocode/src/github.com/Novetta/common/build/buildrpm $HOME/gocode/src/github.com/Novetta/perseus/build/perseus.spect
+
+# Install here
+echo "Installing Perseus"
+sudo yum install $HOME/rpmbuild/RPMS/x86_64/perseus*.rpm
+

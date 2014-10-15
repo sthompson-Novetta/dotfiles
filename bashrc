@@ -79,11 +79,6 @@ bash_prompt
 #unset bash_prompt
 
 
-# add the sencha command 
-export PATH=/home/scott/bin/Sencha/Cmd/4.0.4.84:$PATH
-
-export SENCHA_CMD_3_0_0="/home/scott/bin/Sencha/Cmd/4.0.4.84"
-
 [ -f /etc/profile ] && source /etc/profile
 export PGDATA=/var/lib/pgsql/data
 export PATH=$PATH:$HOME/bin
@@ -92,5 +87,33 @@ export PATH=$PATH:$HOME/bin
 export PGUSER=postgres
 export PGDATABASE=VideoEnterprise
 export PGSSLMODE=disable
-export PGPORT=6543
-export PGPASSWORD=password
+export PGPORT=5432
+#export PGPORT=6543
+#export PGPASSWORD=password
+
+# setup stuff for the Sencha stuff
+export PATH=/home/scott/bin/Sencha/Cmd/5.0.0.160:$PATH
+export SENCHA_CMD_3_0_0="/home/scott/bin/Sencha/Cmd/5.0.0.160"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH=/usr/java/jdk1.8.0_11/bin:$PATH # Use the sun java rather than openjava
+
+# These are new videx environment settings
+export NOVETTA="$GOPATH/src/github.com/Novetta"
+export VIDEO_ENTERPRISE="$NOVETTA/VideoEnterprise"
+export PATH="/opt/videx/bin:$VIDEO_ENTERPRISE/bin: $VIDEO_ENTERPRISE/scripts:$NOVETTA/common/bin:$HOME/bin:$PATH"
+
+#export WEBPORT=8787
+#export EXECPORT=1234
+#export WEBROOT="$VIDEO_ENTERPRISE/static"
+#export ICON_DIR="$NOVETTA/common/milsym/icons"
+#export ALLOW_VIDEX_DOCS="true"
+#export AUTH_DEBUG="true"
+#export USER_CONFIG="$HOME/videx.users"
+#export DEFAULT_ROLE="admin"
+#export MULTICAST_INTERFACE="em1"
+
+
+
+
+
