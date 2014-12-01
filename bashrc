@@ -71,6 +71,7 @@ shopt -s checkwinsize
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/gocode
 export GOBIN=$GOPATH/bin
+export GOROOT=/usr/local/go
 export NOVETTA_PATH=$HOME/gocode/src/github.com/Novetta
 export JSLIBPATH=$NOVETTA_PATH/VideoEnterprise/static/lib
 export ICON_DIR=$NOVETTA_PATH/common/milsym/icons

@@ -19,7 +19,7 @@ cd $HOME
 #reset counter to 0
 echo 0 > $VIDEO_ENTERPRISE/build/videx.spect.count
 echo 0 > $VIDEO_ENTERPRISE/build/videx-deps.spect.count
-echo 0 > $PERSEUS/build/perseus.spect.count
+echo 0 > $NOVETTA/perseus/build/perseus.spect.count
 
 # Build dependencies
 echo "Building Dependencies"
@@ -40,3 +40,5 @@ $HOME/gocode/src/github.com/Novetta/common/build/buildrpm $HOME/gocode/src/githu
 echo "Installing Perseus"
 sudo yum install $HOME/rpmbuild/RPMS/x86_64/perseus*.rpm
 
+# Update the videx user to set to admin
+sudo sed -i.bak s/user/admin/g /opt/videx/conf/videx.env

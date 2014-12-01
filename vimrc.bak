@@ -1,17 +1,28 @@
+" ======================== Vundle Config =================
 
-" =============  vim golang ==============
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+"set rtp+=$GOROOT/misc/vim
+call vundle#rc()
+Bundle 'gmarik/vundle'
 
-" Some Linux distributions set filetype in /etc/vimrc.
-" Clear filetype flags before changing runtimepath to force Vim to reload them.
-if exists("g:did_load_filetypes")
-  filetype off
-  filetype plugin indent off
-endif
-set runtimepath+=$GOROOT/misc/vim " replace $GOROOT with the output of: go env GOROOT
-filetype plugin indent on
-syntax on
+"          _ __  __          __
+"   ____ _(_) /_/ /_  __  __/ /_
+"  / __ `/ / __/ __ \/ / / / __ \
+" / /_/ / / /_/ / / / /_/ / /_/ /
+" \__, /_/\__/_/ /_/\__,_/_.___/
+"/____/ ----- Vim Bundles -------
+"
 
-
+Bundle 'SeanThomasWilliams/dwm.vim'
+Bundle 'gagoar/StripWhiteSpaces'
+Bundle 'kien/ctrlp.vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-surround'
+Bundle 'vim-scripts/vimwiki'
+Bundle 'jnwhiteh/vim-golang'
 
 "+----------------- Basic Configurations ------------+
 "
@@ -27,6 +38,14 @@ if has('gui_running')
     set guifont=Terminus\ 10
 endif
 
+" =========================
+" Vim-Script Configurations
+" =========================
+let g:NERDTreeChDirMode=2 " Let NERDTRee Change Directories for Me
+let g:NERDTreeIgnore = ['\.pyc$', '\.swp$', '.DS_Store'] " Nerdtree doesnt follow wildignore anymore need to set them manually.
+let g:Powerline_symbols='fancy' " Use fancy theme for PowerLine
+let g:indent_guides_guide_size = 1 " Only use one column to show indent
+let g:indent_guides_start_level = 2 " Start on the second level of indents
 let g:syntastic_javascript_jslint_conf = "" " Default jslint
 
 " Keymappings
@@ -37,6 +56,14 @@ nmap <leader>w :write<CR>
 nmap <leader>wq :write <bar> :quit<CR>
 nmap <leader>q :quit<CR>
 
+" Syntastic / Location list mappings
+nmap <silent><leader>lc :lcl<CR>
+nmap <silent><leader>lo :lw<CR>
+
+" NERDTRee Keymappings
+nmap <leader>nt :NERDTreeToggle<CR>
+nmap <leader>nf :NERDTreeFocus<CR>
+nmap <leader>nch :NERDTree .<CR>
 
 " Autocommands that cant live in after/filetypes
 " ----------------------------------------------
@@ -71,7 +98,6 @@ set backupdir=/var/tmp,/tmp
 set backupdir=~/.vim/tmp/backup/
 set cmdheight=2
 set cursorline " Show highlight on the cursor line
-set cursorcolumn " Show highlight on the cursor column
 set directory=~/.vim/tmp/
 set diffopt+=iwhite
 set encoding=utf8 " We write unicode so use utf8
@@ -156,6 +182,7 @@ augroup END
 " COLOR
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set background=dark
+color inkpot
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " STATUS LINE
@@ -319,10 +346,10 @@ inoremap <s-tab> <c-n>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ARROW KEYS ARE UNACCEPTABLE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"map <Left> <Nop>
-"map <Right> <Nop>
-"map <Up> <Nop>
-"map <Down> <Nop>
+map <Left> <Nop>
+map <Right> <Nop>
+map <Up> <Nop>
+map <Down> <Nop>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " OpenChangedFiles COMMAND
