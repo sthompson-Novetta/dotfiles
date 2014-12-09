@@ -10,20 +10,20 @@
 #    echo "("${ref#refs/heads/}")"
 #}
 
-source /usr/share/doc/git/contrib/completion/git-prompt.sh
+#source /usr/share/doc/git/contrib/completion/git-prompt.sh
 
-bash_prompt () {
-    source /usr/share/doc/git/contrib/completion/git-completion.bash
-    function parse_git_dirty {
-	[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
-    }
-
-    function parse_git_branch {
-	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
-    }
-	export PS1='\[\e[36;1m\]\w\[\e[0m\] $(__git_ps1	"[\[\e[0;32m\]%s\[\e[0m\]\[\e[0;33m\]$(parse_git_dirty)\[\e[0m\]]")\n\$ \[\e[0m\] \u@\h \$ '
-
-}
+#bash_prompt () {
+#    source /usr/share/doc/git/contrib/completion/git-completion.bash
+#    function parse_git_dirty {
+#	[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+#    }
+#
+#    function parse_git_branch {
+#	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+#    }
+#	export PS1='\[\e[36;1m\]\w\[\e[0m\] $(__git_ps1	"[\[\e[0;32m\]%s\[\e[0m\]\[\e[0;33m\]$(parse_git_dirty)\[\e[0m\]]")\n\$ \[\e[0m\] \u@\h \$ '
+#
+#}
 
 #bash_prompt
 #unset bash_prompt
@@ -68,6 +68,7 @@ shopt -s checkwinsize
 #fi
 
 # Go path settings
+export PATH=$PATH:/usr/local/git/bin
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/gocode
 export GOBIN=$GOPATH/bin
@@ -76,7 +77,7 @@ export NOVETTA_PATH=$HOME/gocode/src/github.com/Novetta
 export JSLIBPATH=$NOVETTA_PATH/VideoEnterprise/static/lib
 export ICON_DIR=$NOVETTA_PATH/common/milsym/icons
 
-bash_prompt
+#bash_prompt
 #unset bash_prompt
 
 
@@ -89,15 +90,12 @@ export PGUSER=postgres
 export PGDATABASE=VideoEnterprise
 export PGSSLMODE=disable
 export PGPORT=5432
-#export PGPORT=6543
-#export PGPASSWORD=password
 
 # setup stuff for the Sencha stuff
-export PATH=/home/scott/bin/Sencha/Cmd/5.0.0.160:$PATH
-export SENCHA_CMD_3_0_0="/home/scott/bin/Sencha/Cmd/5.0.0.160"
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-export PATH=/usr/java/jdk1.8.0_11/bin:$PATH # Use the sun java rather than openjava
+#export PATH=/home/scott/bin/Sencha/Cmd/5.0.0.160:$PATH
+#export SENCHA_CMD_3_0_0="/home/scott/bin/Sencha/Cmd/5.0.0.160"
+#export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+#export PATH=/usr/java/jdk1.8.0_11/bin:$PATH # Use the sun java rather than openjava
 
 # These are new videx environment settings
 export NOVETTA="$GOPATH/src/github.com/Novetta"
