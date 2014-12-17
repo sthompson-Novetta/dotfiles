@@ -42,3 +42,6 @@ sudo yum install $HOME/rpmbuild/RPMS/x86_64/perseus*.rpm
 
 # Update the videx user to set to admin
 sudo sed -i.bak s/user/admin/g /opt/videx/conf/videx.env
+
+# Copy the sample wpm file over
+sudo cp /opt/videx/static/lib/GoogleEarth/wms.js.sample /opt/videx/static/lib/GoogleEarth/wms.js

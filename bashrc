@@ -80,7 +80,6 @@ export ICON_DIR=$NOVETTA_PATH/common/milsym/icons
 #bash_prompt
 #unset bash_prompt
 
-
 [ -f /etc/profile ] && source /etc/profile
 export PGDATA=/var/lib/pgsql/data
 export PATH=$PATH:$HOME/bin
@@ -101,18 +100,4 @@ export PGPORT=5432
 export NOVETTA="$GOPATH/src/github.com/Novetta"
 export VIDEO_ENTERPRISE="$NOVETTA/VideoEnterprise"
 export PATH="/opt/videx/bin:$VIDEO_ENTERPRISE/bin: $VIDEO_ENTERPRISE/scripts:$NOVETTA/common/bin:$HOME/bin:$PATH"
-
-#export WEBPORT=8787
-#export EXECPORT=1234
-#export WEBROOT="$VIDEO_ENTERPRISE/static"
-#export ICON_DIR="$NOVETTA/common/milsym/icons"
-#export ALLOW_VIDEX_DOCS="true"
-#export AUTH_DEBUG="true"
-#export USER_CONFIG="$HOME/videx.users"
-#export DEFAULT_ROLE="admin"
-#export MULTICAST_INTERFACE="em1"
-
-
-
-
 
