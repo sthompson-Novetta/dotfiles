@@ -4,7 +4,7 @@ while getopts "v" opt; do
   case $opt in 
     v)
       echo "-v was triggered, for Verbose" >&2;
-      find . -name .git -exec dirname {} ';' | xargs -L 1 -P 3 bash -c 'echo "$0" && cd "$0" && git pull && echo "\n"';
+      sudo find / -name .git -exec dirname {} 2>/dev/null ';' | xargs -L 1 -P 10 bash -c 'echo "$0" && cd "$0" && git pull && echo "\n"';
       exit 0;
       ;;
     \?)
@@ -14,4 +14,4 @@ while getopts "v" opt; do
 done  
 
 echo "Not Verbose"
-find . -name .git -exec dirname {} ';' | xargs -L 1 -P 3 bash -c 'cd "$0" && git pull &>/dev/null'
+sudo find / -name .git -exec dirname {} 2>/dev/null ';' | xargs -P 10 bash -c 'cd "$0" && git pull &>/dev/null'
