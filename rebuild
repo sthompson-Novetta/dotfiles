@@ -30,7 +30,7 @@ echo "Building Videx Itself"
 $HOME/gocode/src/github.com/Novetta/common/build/buildrpm $HOME/gocode/src/github.com/Novetta/VideoEnterprise/build/videx.spect
 
 echo "Installing Videx"
-sudo yum install $HOME/rpmbuild/RPMS/x86_64/videx*.rpm
+sudo yum install -y $HOME/rpmbuild/RPMS/x86_64/videx*.rpm
 
 # Build perseus
 echo "Building Perseus"
@@ -38,10 +38,15 @@ $HOME/gocode/src/github.com/Novetta/common/build/buildrpm $HOME/gocode/src/githu
 
 # Install here
 echo "Installing Perseus"
-sudo yum install $HOME/rpmbuild/RPMS/x86_64/perseus*.rpm
+sudo yum install -y $HOME/rpmbuild/RPMS/x86_64/perseus*.rpm
 
 # Update the videx user to set to admin
+echo "Setting base user to admin..."
 sudo sed -i.bak s/user/admin/g /opt/videx/conf/videx.env
+sudo service videx restart
 
 # Copy the sample wpm file over
+echo "Copying wms.js"
 sudo cp /opt/videx/static/lib/GoogleEarth/wms.js.sample /opt/videx/static/lib/GoogleEarth/wms.js
+
+echo "Complete!"
