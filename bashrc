@@ -34,6 +34,14 @@
 #    export PS1="$YELLOW\$(parse_git_branch)$WHITE[\u@\h $CYAN\W$WHITE]\$ "
 #fi
 
+
+
+# Git Bash Completion
+GIT_DIR=/usr/src/git-master
+source $GIT_DIR/contrib/completion/git-prompt.sh
+source $GIT_DIR/contrib/completion/git-completion.bash
+export PS1='[\u@\h \W$(__git_ps1 " (%s)")]\$ '
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
