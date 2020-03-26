@@ -150,9 +150,13 @@ fi
 
 
 # Enable docker machine shell prompt
-PS1='[\u@\h \W$(__docker_machine_ps1)]\$ '
+#PS1='[\u@\h \W$(__docker_machine_ps1)]\$ '
 
-export ARTIFACTORY_TOKEN=""
+TOKEN_STR=
+export ARTIFACTORY_TOKEN=$TOKEN_STR
+export ART_USERNAME=scott.m.thompson
+export ART_PASSWORD=
+export DICELAB_TOKEN=$ART_USERNAME:$ART_PASSWORD
 
 export PATH=$HOME/.local/bin:$PATH
 

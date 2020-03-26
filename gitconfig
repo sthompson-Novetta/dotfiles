@@ -1,0 +1,21 @@
+[user]
+    name = Scott M. Thompson
+    email = scott.thompson@dodiis.mil
+
+[core]
+    editor = vim
+
+[diff]
+
+[color]
+    ui = auto
+
+[alias]
+    co = checkout
+    amend = commit --amend
+    fa = fetch --all
+
+[merge]
+    tool = vimdiff
+[push]
+	default = current
