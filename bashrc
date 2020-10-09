@@ -18,8 +18,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=10000
+HISTFILESIZE=200000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -152,11 +152,6 @@ fi
 # Enable docker machine shell prompt
 #PS1='[\u@\h \W$(__docker_machine_ps1)]\$ '
 
-TOKEN_STR=
-export ARTIFACTORY_TOKEN=$TOKEN_STR
-export ART_USERNAME=scott.m.thompson
-export ART_PASSWORD=
-export DICELAB_TOKEN=$ART_USERNAME:$ART_PASSWORD
-
-export PATH=$HOME/.local/bin:$PATH
+# For Openshift
+export PATH=$PATH:~/openshift
 

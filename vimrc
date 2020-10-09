@@ -28,18 +28,24 @@ set number
 set numberwidth=5
 set scrolloff=3 " keep more context when scrolling off the end of a buffer
 set shell=bash " This makes RVM work inside Vim. I have no idea why.
-set shiftwidth=4
 set showcmd " display incomplete commands
 
 set showmatch
 set showmode " Always show mode
 set showtabline=2
 set smartindent " Be smart when indenting
-set softtabstop=4
 set switchbuf=useopen
 set t_Co=256 " If in terminal use 256 colors
 set t_ti= t_te= " Prevent Vim from clobbering the scrollback buffer. See
-set tabstop=4
+
+"set shiftwidth=4
+"set tabstop=4
+"set softtabstop=4
+
+set ts=4 sts=4 sw=4 expandtab
+autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
+autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
+
 "
 set title "Show a window title
 "set textwidth=120
@@ -56,8 +62,6 @@ syntax on " Enable highlighting for syntax
 set autoread
 set formatoptions-=cro
 set mouse=a
-
-
 
 
 
